@@ -1,4 +1,4 @@
-// Math model by Vasista Ayyagari
+// Math model by Vasista Ayyagari. Contact vasista1997@gmail.com
 
 class System{
   Mass M1;
