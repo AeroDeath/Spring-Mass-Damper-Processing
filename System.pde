@@ -1,4 +1,4 @@
-// Math model by Vasista Ayyagari
+// Math model by Vasista Ayyagari. Contact vasista1997@gmail.com
 
 class System{
   Mass M1;
@@ -29,10 +29,12 @@ class System{
   
   void update(){
     
+    // Use standard Dynamics Techniques like langrangian or energy approach to obtain the accelerations of each body
     this.M1.acceleration.x = (-(this.S1.stiffness + this.S2.stiffness)*this.d1 + this.S2.stiffness*this.d2 - this.S1.damping*this.M1.velocity.x - 
     this.S2.damping*(this.M1.velocity.x - this.M2.velocity.x))/(this.M1.mass);
     this.M2.acceleration.x = (-(this.S2.stiffness+this.S3.stiffness)*this.d2 + this.d1*this.S2.stiffness - this.S3.damping*this.M2.velocity.x + 
     this.S2.damping*(this.M1.velocity.x - this.M2.velocity.x))/(this.M2.mass);
+    // Use kinematic equations to obtain Positions and Velocities of the Bodies. We can integrate accelerations with initial conditions to obtain Position and Velocity
     this.M1.position.x += this.M1.velocity.x/60 + this.M1.acceleration.x/7200;
     this.M2.position.x += this.M2.velocity.x/60 + this.M2.acceleration.x/7200;
     this.M1.velocity.x += this.M1.acceleration.x/60;
